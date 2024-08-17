@@ -1,0 +1,10 @@
+{
+    "workbench.preferredDarkColorTheme": "Dracula Theme",
+    "editor.defaultFormatter": null,
+    "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    }
+}
