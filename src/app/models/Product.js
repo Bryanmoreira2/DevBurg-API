@@ -11,7 +11,6 @@ class Product extends Model {
 				// Define os campos do modelo Product
 				name: Sequelize.STRING, // Campo 'name' do tipo string
 				price: Sequelize.STRING, // Campo 'price' do tipo string
-				category: Sequelize.STRING, // Campo 'category' do tipo string
 				path: Sequelize.STRING, // Campo 'path' do tipo string
 
 				// Campo virtual 'url' que não é armazenado no banco de dados
@@ -28,6 +27,14 @@ class Product extends Model {
 			},
 		);
 		return this;
+	}
+
+	static associate(models) {
+		this.belongsTo(models.Category, {
+			foreignKey: "category_id",
+			as: "category",
+			
+		})
 	}
 }
 

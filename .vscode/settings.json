@@ -1,12 +1,10 @@
 {
 	"workbench.preferredDarkColorTheme": "Dracula Theme",
-	"terminal.integrated.accessibleViewFocusOnCommandExecution": true,
-	"editor.formatOnType": true,
 	"editor.defaultFormatter": null,
-	"editor.formatOnSave": true,
-	"editor.fontSize": 16,
 	"[javascript]": {
-		"editor.defaultFormatter": null
+		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"editor.formatOnPaste": false
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
 }

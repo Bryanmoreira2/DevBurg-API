@@ -2,6 +2,8 @@
 import * as Yup from "yup";
 // Importa o modelo Product
 import Product from "../models/Product";
+import Category from "../models/Category";
+import { Model } from "sequelize";
 
 class ProductsController {
 	// Método para criar um novo produto
@@ -10,7 +12,7 @@ class ProductsController {
 		const schema = Yup.object({
 			name: Yup.string().required(), // O campo 'name' é obrigatório e deve ser uma string
 			price: Yup.number().required(), // O campo 'price' é obrigatório e deve ser um número
-			category: Yup.string().required(), // O campo 'category' é obrigatório e deve ser uma string
+			category_id: Yup.number().required(), // O campo 'category' é obrigatório e deve ser uma string
 		});
 
 		try {
@@ -25,13 +27,13 @@ class ProductsController {
 		const { filename: path } = request.file;
 
 		// Extrai os campos 'name', 'price' e 'category' do corpo da requisição
-		const { name, price, category } = request.body;
+		const { name, price, category_id } = request.body;
 
 		// Cria um novo produto com os dados fornecidos
 		const products = await Product.create({
 			name,
 			price,
-			category,
+			category_id,
 			path,
 		});
 
@@ -42,7 +44,16 @@ class ProductsController {
 	// Método para listar todos os produtos
 	async index(request, response) {
 		// Busca todos os produtos no banco de dados
-		const products = await Product.findAll();
+		const products = await Product.findAll({
+			include:[
+				{
+				model: Category,
+				as: 'category',
+				attributes: ['id','name'],
+				}
+			]
+
+		});
 
 		// Exibe o ID do usuário no console (útil para depuração)
 		console.log({ userId: request.userId });
