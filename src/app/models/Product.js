@@ -1,5 +1,5 @@
 // Importa Sequelize e a classe Model do Sequelize
-import Sequelize, { Model } from 'sequelize';
+import Sequelize, { Model } from "sequelize";
 
 // Define a classe Product que extende a classe Model do Sequelize
 // biome-ignore lint/complexity/noStaticOnlyClass: Classe contém apenas métodos estáticos, recomendado para evitar instâncias desnecessárias.
@@ -27,6 +27,7 @@ class Product extends Model {
 				sequelize, // Conexão com a instância do Sequelize
 			},
 		);
+		return this;
 	}
 }
 

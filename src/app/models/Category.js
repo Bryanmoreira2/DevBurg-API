@@ -1,4 +1,4 @@
-import Sequelize, { Model } from 'sequelize';
+import Sequelize, { Model } from "sequelize";
 // biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
 class Category extends Model {
 	static init(sequelize) {
@@ -10,6 +10,8 @@ class Category extends Model {
 				sequelize,
 			},
 		);
+
+		return this;
 	}
 }
 

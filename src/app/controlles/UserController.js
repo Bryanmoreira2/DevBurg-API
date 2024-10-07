@@ -1,7 +1,7 @@
-import { v4 as uuidv4 } from 'uuid'; // Importa a função v4 de uuid com o nome uuidv4
-import * as Yup from 'yup'; // Importa tudo de Yup
+import { v4 as uuidv4 } from "uuid"; // Importa a função v4 de uuid com o nome uuidv4
+import * as Yup from "yup"; // Importa tudo de Yup
 
-import User from '../models/User'; // Importa o modelo User
+import User from "../models/User"; // Importa o modelo User
 
 class UserController {
 	async store(request, response) {
@@ -27,7 +27,7 @@ class UserController {
 		});
 
 		if (userExists) {
-			return response.status(400).json({ error: 'User already exists' }); // Retorna erro se o usuário já existir
+			return response.status(400).json({ error: "User already exists" }); // Retorna erro se o usuário já existir
 		}
 
 		// Cria um novo usuário no banco de dados

@@ -1,7 +1,7 @@
 // Importa o Yup para validação de dados
-import * as Yup from 'yup';
+import * as Yup from "yup";
 // Importa o modelo Product
-import Product from '../models/Product';
+import Product from "../models/Product";
 
 class ProductsController {
 	// Método para criar um novo produto

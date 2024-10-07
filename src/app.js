@@ -1,8 +1,8 @@
-import { resolve } from 'node:path';
+import { resolve } from "node:path";
 // Importações necessárias
-import express from 'express';
-import './databese'; // Inicializa a conexão com o banco de dados
-import routes from './routes';
+import express from "express";
+import "./databese"; // Inicializa a conexão com o banco de dados
+import routes from "./routes";
 
 class App {
 	constructor() {
@@ -13,7 +13,10 @@ class App {
 
 	middlewares() {
 		this.app.use(express.json()); // Middleware para parsing de JSON
-		this.app.use('/products-file', express.static(resolve(__dirname, '..', 'uploads')));
+		this.app.use(
+			"/products-file",
+			express.static(resolve(__dirname, "..", "uploads")),
+		);
 	}
 
 	routes() {

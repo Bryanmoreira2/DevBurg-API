@@ -1,8 +1,8 @@
 // Importa o Yup para validação de dados
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 // Importa o modelo Category
-import Category from '../models/Category';
+import Category from "../models/Category";
 
 class CategoryController {
 	// Método para criar uma nova categoria
@@ -22,6 +22,15 @@ class CategoryController {
 
 		// Extrai o campo 'name' do corpo da requisição
 		const { name } = request.body;
+
+		const categoryExists = await Category.findOne({
+			where: {
+				name,
+			},
+		});
+
+		if (categoryExists)
+			return response.status(400).json({ error: "Category already exists" });
 
 		// Cria uma nova categoria com o nome fornecido
 		const category = await Category.create({

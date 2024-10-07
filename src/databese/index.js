@@ -1,9 +1,9 @@
 // Importações necessárias
-import Sequelize from 'sequelize';
-import Product from '../app/models/Product';
-import Category from '../app/models/Category';
-import User from '../app/models/User';
-import configDatabase from '../config/database';
+import Sequelize from "sequelize";
+import Product from "../app/models/Product";
+import Category from "../app/models/Category";
+import User from "../app/models/User";
+import configDatabase from "../config/database";
 
 const models = [User, Product, Category]; // Array de modelos
 
@@ -14,7 +14,9 @@ class Database {
 
 	init() {
 		this.connection = new Sequelize(configDatabase); // Cria a conexão
-		models.map((model) => model.init(this.connection)); // Inicializa os modelos
+		models
+			.map((model) => model.init(this.connection))
+			.map((model) => model.associate && model.associate(this.connection.models)); // Inicializa os modelos
 	}
 }
 

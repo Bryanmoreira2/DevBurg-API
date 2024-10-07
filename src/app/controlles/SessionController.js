@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken';
-import * as Yup from 'yup';
-import authConfig from '../../config/auth';
-import User from '../models/User';
+import jwt from "jsonwebtoken";
+import * as Yup from "yup";
+import authConfig from "../../config/auth";
+import User from "../models/User";
 
 class SessionController {
 	// Método assíncrono para criar uma nova sessão de usuário
@@ -17,7 +17,9 @@ class SessionController {
 
 		// Função para retornar erro de autenticação
 		const emailOrPasswordIncorrect = () => {
-			response.status(401).json({ error: 'make sure your email or password is correct' });
+			response
+				.status(401)
+				.json({ error: "make sure your email or password is correct" });
 		};
 
 		// Retorna erro se a validação falhar

@@ -1,6 +1,6 @@
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 // Importações necessárias
-import Sequelize, { Model } from 'sequelize';
+import Sequelize, { Model } from "sequelize";
 
 // Define o modelo User
 // biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
@@ -19,7 +19,7 @@ class User extends Model {
 			},
 		);
 
-		this.addHook('beforeSave', async (user) => {
+		this.addHook("beforeSave", async (user) => {
 			if (user.password) {
 				user.password_hash = await bcrypt.hash(user.password, 10);
 			}
