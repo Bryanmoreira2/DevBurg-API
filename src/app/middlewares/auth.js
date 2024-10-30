@@ -1,7 +1,7 @@
 // Importa o módulo jsonwebtoken para manipulação de tokens JWT
 import jwt from 'jsonwebtoken';
 // Importa as configurações de autenticação, como a chave secreta
-import authConfig from '../config/auth';
+import authConfig from '../../config/auth';
 
 // Função middleware para autenticação baseada em JWT
 function authMiddleware(request, response, next) {
@@ -25,6 +25,7 @@ function authMiddleware(request, response, next) {
 
 			// Se a verificação for bem-sucedida, armazena o ID do usuário decodificado na requisição
 			request.userId = decoded.id;
+			request.userName = decoded.name;
 		});
 	} catch (err) {
 		// Retorna erro 401 se o token for inválido

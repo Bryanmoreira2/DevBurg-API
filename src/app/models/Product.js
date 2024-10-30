@@ -12,6 +12,7 @@ class Product extends Model {
 				name: Sequelize.STRING, // Campo 'name' do tipo string
 				price: Sequelize.STRING, // Campo 'price' do tipo string
 				path: Sequelize.STRING, // Campo 'path' do tipo string
+				offer:Sequelize.BOOLEAN,
 
 				// Campo virtual 'url' que não é armazenado no banco de dados
 				url: {
