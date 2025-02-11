@@ -8,6 +8,7 @@ import UserController from "./app/controlles/UserController";
 import multerConfig from "./config/multer";
 import authMiddleware from "./app/middlewares/auth";
 import OrderController from "./app/controlles/OrderController";
+import CreatePaymentIntentController from "./app/controlles/stripe/CreatePaymentIntentController";
 
 const routes = new Router(); // Instância do Router
 
@@ -30,4 +31,6 @@ routes.put("/categories/:id", upload.single("file"), CategoryController.update);
 routes.post("/orders", OrderController.store);
 routes.get("/orders", OrderController.index);
 routes.put("/orders/:id", OrderController.updade);
+
+routes.post ("/create-payment-intent", CreatePaymentIntentController.store)
 export default routes; // Exporta as rotas

@@ -3,10 +3,13 @@ import { resolve } from "node:path";
 import express from "express";
 import "./databese"; // Inicializa a conexão com o banco de dados
 import routes from "./routes";
+import  cors from "cors";
 
 class App {
 	constructor() {
 		this.app = express(); // Cria a aplicação Express
+		this.app.use(cors());
+
 		this.middlewares(); // Configura middlewares
 		this.routes(); // Configura rotas
 	}
